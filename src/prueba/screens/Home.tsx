@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { ColorsGlobals, GlobalStyle } from '../theme/Theme';
-import { TextInput } from 'react-native-paper';
+import { Icon, TextInput } from 'react-native-paper';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { RootStackProps } from '../routes/StackNavigation';
 import { PrimaryButton } from '../components/PrimaryButton';
@@ -14,18 +14,24 @@ export const Home = () => {
 
 
   const agregarNombre = () => {
-    if (nombre.trim()) {  
+    if (nombre.trim()) {
       setNombres([...nombres, nombre]);
-      setNombre(""); 
+      setNombre("");
     }
   };
 
   return (
     <View style={GlobalStyle.content}>
       <View style={GlobalStyle.header}>
-        <Text style={GlobalStyle.textPrimario}>
-          HOME
+        <Text style={[GlobalStyle.textPrimario, { flex: 1, }]}>
+          INICIO
         </Text>
+        <Pressable onPress={ () => navigation.navigate('Imagen')}>
+          <Icon
+            source="account"
+            color={ColorsGlobals.blanco}
+            size={40} />
+        </Pressable>
       </View>
       <View style={GlobalStyle.body}>
         <Text style={GlobalStyle.textSecundario}>
@@ -35,7 +41,7 @@ export const Home = () => {
           mode='outlined'
           style={{ marginVertical: 10 }}
           value={nombre}
-          onChangeText={text => setNombre(text)} 
+          onChangeText={text => setNombre(text)}
           activeOutlineColor={ColorsGlobals.secundario}
         />
         <Pressable
@@ -45,15 +51,15 @@ export const Home = () => {
           <Text style={GlobalStyle.textPrimario}>Agregar</Text>
         </Pressable>
 
-        <PrimaryButton 
-          onPress={() => navigation.navigate('Props', { nombres })} 
+        <PrimaryButton
+          onPress={() => navigation.navigate('Props', { nombres })}
           label='Props'
         />
-        <PrimaryButton 
+        <PrimaryButton
           onPress={() => navigation.navigate('Axios')}
           label='Axios'
         />
-        <PrimaryButton 
+        <PrimaryButton
           onPress={() => navigation.navigate('AsyncStorage')}
           label='AsyncStorage'
         />

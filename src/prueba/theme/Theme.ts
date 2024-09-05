@@ -16,24 +16,24 @@ export const GlobalStyle = StyleSheet.create({
     },
     body:{
         flex: 1,
-        padding: 20
+        padding: 20,
     },
     header:{
         backgroundColor: ColorsGlobals.primario,
-        borderBottomLeftRadius: 20,
-        borderBottomRightRadius: 20,
+        flexDirection: 'row',
         padding: 20,
-        justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     textPrimario: {
         color: ColorsGlobals.blanco,
         fontSize: 20,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     textSecundario: {
         color: ColorsGlobals.secundario,
         fontSize: 15,
+        fontWeight: 'bold'
     },
     textInput:{
         marginTop: 10,
@@ -54,5 +54,33 @@ export const GlobalStyle = StyleSheet.create({
     card: {
         backgroundColor: ColorsGlobals.primario,
         marginBottom: 10,
+    },
+    headerImg:{
+        backgroundColor: ColorsGlobals.primario,
+        padding: 20,
+        alignItems: 'center',
+        borderBottomLeftRadius: 30,
+        borderBottomRightRadius: 30
+    },
+    bodyImg:{
+        flex: 1,
+        padding: 20,
+    },
+    imagen: {
+        borderRadius: 100,
+        height: 200,
+        width: 200,
+        marginBottom: 20
+    },
+    textImg: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 10
+    },
+    textImgTitle:{
+        color: ColorsGlobals.terciario,
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginVertical: 10,
     }
 })
