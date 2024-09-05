@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 import { Card } from 'react-native-paper';
 import axios from 'axios';
+import { GlobalStyle } from '../theme/Theme';
 
 interface User {
     id: number;
@@ -26,10 +27,9 @@ export const Axios = () => {
     }, []);
 
     const renderItem = ({ item }: { item: User }) => (
-        <Card style={styles.card}>
+        <Card style={GlobalStyle.card}>
             <Card.Content>
-                <Text style={styles.name}>{item.id}</Text>
-                <Text>{item.title}</Text>
+                <Text style={GlobalStyle.textPrimario}>{item.id} {item.title}</Text>
                 <Image 
                 style={{width: 200,
                     height: 200,
@@ -40,7 +40,7 @@ export const Axios = () => {
     );
 
     return (
-        <View style={styles.container}>
+        <View style={GlobalStyle.body}>
             <FlatList
                 data={users}
                 keyExtractor={item => item.id.toString()}
@@ -49,17 +49,3 @@ export const Axios = () => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 10,
-    },
-    card: {
-        marginBottom: 10,
-    },
-    name: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-});
